@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="row-fluid">
+   {% include "categories.html" %}
+   <div class="span9">
+      <div class = "caption">
+         <h2><small>Delete {{item_view[0].title + ' (' + item_view[1].name + ')'}}</small></h2>
+      </div>
+    <div class="thumbnail">
+       	<div class="caption">
+	       <p>{{item_view[0].description}}</p>
+	       <form class = "form-horizontal" method = "post">
+	       	 <p>Are you sure want to delete ?</p>
+	         <div class = "control-group">
+	           <button class="btn btn-primary" type="submit">Submit</button>
+	         </div>
+	         <input type="hidden" name="item_id" value="{{item_view[0].id}}"/>
+	       </form>
+	    </div>
+    </div>
+   </div>
+  </div>
+ {% endblock %}

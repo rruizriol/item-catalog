@@ -1,0 +1,7 @@
+<div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+        	{% for category in categories %}
+        	  <li {% if category_name != None and  category.name == category_name  %} class = "active" {% endif %}><a href="{{url_for('category_page', category_name = category.name)}}"><i class="icon-chevron-right"></i>{{category.name}}</a></li>
+        	{% endfor %}
+        </ul>
+ </div>

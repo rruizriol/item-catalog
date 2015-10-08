@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="row-fluid">
+   {% include "categories.html" %}
+   <div class="span9">
+      <div class = "caption">
+         <h2><small>Latest Items</small></h2>
+      </div>
+      <div class="thumbnail">
+       	<div class="caption">
+	      <ul class="nav nav-list">
+	          {% for item_view in items_view %}
+                 <li><a href="{{url_for('view_item', category_name = item_view[1].name, item_title = item_view[0].title)}}">{{item_view[0].title + ' (' + item_view[1].name + ')'}}</a></li>
+              {% endfor %}
+	       </ul>
+	       {%if 'username' in session %}
+	       <div class = "control-group">
+	        <a href="{{url_for('add_item')}}" class="btn btn-default">Add</a>
+	       </div>
+	       {%endif%}
+	    </div>
+      </div>
+    </div>
+   </div>
+ {% endblock %}
